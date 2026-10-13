@@ -1,0 +1,1545 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name=viewport content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <meta name="description" content="Dr Deblina Bhattacharjee, FHEA. Tenured Assistant Professor of Computer Science at the University of Bath, UK. Research in computer vision, generative AI, multimodal learning and AI for the visual arts, cultural heritage, accessibility and healthcare." />
+  
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    
+    <title>Deblina Bhattacharjee</title>
+
+
+
+    <style>
+        body {
+            font-family: 'Open Sans', sans-serif;
+            margin: 0;
+            background-color: #FAFAFA;
+        }
+
+        a {
+            text-decoration: none;
+            color: #F44336;
+        }
+
+        a:hover
+        {
+            color: #B71C1C;
+        }
+
+            a:visited {
+                color: #F44336;
+            }
+
+        .introbanner h1 {
+            font-size:3em;
+        }
+
+        .introbanner .subtitle
+        {
+            font-size:1.4em;
+        }
+
+        .introbanner {
+            width: 100%;
+            height: calc(100vh - 100px);
+            background-color: black;
+            color: white;
+            text-align: center;
+            position: relative;
+            min-height: 300px;
+        }
+
+            .introbanner .inner {
+                z-index: 2;
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                display: flex;
+                display:flex;justify-content:center;align-items:center;                
+            }
+
+                .introbanner .inner .bannercontainer {                    
+                }
+
+            .introbanner h1 {
+            }
+
+
+
+        .scrollbuttonbox {
+            height: 100px;
+            text-align: center;
+            position: relative;
+        }
+
+            .scrollbuttonbox .topbox {
+                height: 50px;
+                margin: 0;
+                padding: 0;
+            }
+
+            .scrollbuttonbox .bottombox {
+                height: 50px;
+                margin: 0;
+                padding: 0;
+            }
+
+            .scrollbuttonbox#introbutton .topbox {
+                background-color: black;
+            }
+
+        .content .scrollbuttonbox .topbox {
+            height: 45px;
+            border-bottom: 5px solid black;
+        }
+
+        .content .scrollbuttonbox .bottombox {
+            height: 45px;
+            border-top: 5px solid black;
+        }
+
+        .scrollbuttonbox .nextbutton {
+            width: 100%;
+            position: absolute;
+            top: 25px;
+        }
+
+        .scrollbuttonbox .scrolldownbutton {                        
+            height: 50px;
+            width: 50px;
+            border-radius: 40px;
+            display: inline-block;
+            box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
+            background-color: #F44336;
+            transition: background-color ease-in-out 0.5s, box-shadow ease-in-out 0.5s;
+        }
+
+        .scrolldownbutton:hover {
+            box-shadow: 0 4px 5px 0 rgba(0,0,0,0.16),0 4px 15px 0 rgba(0,0,0,0.12);
+            background-color: #D32F2F;
+        }
+
+
+
+        .scrolldownbutton .sdbcontent {
+            padding-top: 14px;
+            color: white;
+        }
+
+
+        .content {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .contentgroup {
+            /*min-height: 95vh;*/
+            max-width: 1000px;
+            display: inline-block;
+            text-align: left;
+            width: 100%;
+        }
+
+        .imagefloat {
+            float: right;
+            max-width: 300px;
+            padding: 10px;
+            box-shadow: 0 2px 2px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.2), 0 1px 5px 0 rgba(0,0,0,.12);
+            margin: 0 10px 10px 10px;
+        }
+
+            .imagefloat img {
+                width: 100%;
+            }
+
+        .imagebox {
+            display: block;
+            max-width: 400px;
+            width: 100%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+           .imagebox img
+           {
+               width: 100%;
+           }
+
+
+
+        .contentgroup h2 {
+            margin-top: 0;
+        }
+
+
+        header {
+            color: white;
+            width: 100%;
+            position: fixed;
+            width: 100%;
+            z-index: 100;
+            background-color: black;
+        }
+
+            .menubar .menubaritems {
+                position: relative;
+                text-align: right;
+            }
+
+                .menubar .menubaritems a {
+                    display: inline-block;
+                    padding: 10px;
+                    color: #E0E0E0;
+                }
+
+                    .menubar .menubaritems a:hover {
+                        background-color: #616161;
+                    }
+
+        a.anchor {
+            display: block;
+            position: relative;
+            top: -50px;
+            visibility: hidden;
+        }
+
+        ul 
+        {
+            list-style-type:none;
+            padding:0;
+            margin-left:20px;
+        }
+
+        ul li
+        {
+            padding:8px 0;
+            border-top: 1px solid #E0E0E0;
+        }
+
+        ul li:first-child
+        {
+            border:none;
+        }
+
+
+        canvas#introcanvas{
+            position: absolute;
+            left: 0;
+            right: 0;            
+            width: 100%;
+            height: 100%;            
+            box-sizing:border-box;                        
+        }
+
+        .e-mail:before {
+            content: attr(data-website) "\0040" attr(data-user);
+            unicode-bidi: bidi-override;
+            direction: rtl;
+        }
+
+        .contact {
+            padding: 20px;
+            box-sizing: border-box;
+            text-align: center;
+        }
+
+        .contact .contactitem
+        {
+            display:inline-block;
+            margin:10px 10px;
+            vertical-align: middle;            
+        }
+
+        .contactitem a
+        {
+            display:inline-block;
+        }
+
+        header
+        {
+            height:41px;
+            overflow:hidden;
+        }  
+        
+        :focus {outline:0;}
+
+
+        .publication {
+            background-color: white;
+            box-shadow: 0 2px 2px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.2), 0 1px 5px 0 rgba(0,0,0,.12);
+        }
+
+            .publication h3 {
+                padding: 10px;
+            }
+
+            .publication .pcontent {
+                margin: 20px;
+            }
+
+            .publication .authors {
+                font-style: italic;
+                margin: 10px 0;
+            }
+
+            .publication .venue {
+                margin: 10px 0;
+            }
+
+            .publication .paperlink {
+                display: inline-block;
+            }
+
+                .publication label, .publication .paperlink a {
+                    padding: 10px;
+                    display: inline-block;
+                    color: #F44336;
+                    margin-bottom: 10px;
+                }
+
+                    .publication label:hover, .publication .paperlink a:hover {
+                        cursor: pointer;
+                        background-color: #f1f1f1;
+                    }
+
+            .publication input[type=checkbox] {
+                display: none;
+            }
+
+        .abstract {
+            padding: 10px 20px;
+        }
+
+        .publication input[type=checkbox]:checked + .abstract {
+            display: block;
+        }
+
+
+        .topcontent {            
+            margin: 10px;
+        }
+
+        .publication .image
+        {
+            text-align:center;
+        }
+
+        @media screen and (min-width: 580px) {
+            .topcontent
+            {
+                display: flex;
+            }
+
+            .topcontent > * {
+                display: inline-block;
+            }
+        }
+
+        .publication .buttons
+        {
+            margin:10px;
+
+        }
+          
+        .publication .topcontent > .description {
+            margin-right: auto;
+        }
+
+
+        .publication .topcontent .image img {
+            max-width: 200px;
+        }
+
+    </style>
+
+
+</head>
+<body>
+
+    <div class="page">
+        <header>
+            <div class="menubar">
+                <div class="menubaritems">
+                    <a href="#aboutintro" id="menu_about">About</a>
+                    <a href="#news" id="menu_news">News</a>
+                    <a href="#publications" id="menu_publications">Publications</a>
+					<!--<a href="DeblinaBhattacharjee CV-updated.pdf" target="_blank">CV</a>-->
+                    <!--<a href="https://github.com/Debby123" target="_blank">Projects</a>-->
+                    <a href="#talks" id="menu_talks">Talks</a>
+                    <a href="#academicservice" id="menu_certificates">Academic Service</a>
+
+                    <a href="#awards" id="menu_awards">Awards &amp; Grants</a>
+                    <a href="#outreach" id="menu_Outreach">Outreach</a>
+                    <a href="#workinprogress" id="menu_workinprogress">Current Research</a>
+                   <!--<a href="#projects" id="menu_propjects">Projects</a>-->
+                </div>
+            </div>
+        </header>
+        <div class="introbanner">
+            <canvas id="introcanvas"></canvas>
+            <div class="inner">
+                <div class="bannercontainer">
+                    <div class="title">
+                        <h1>Dr Deblina Bhattacharjee, FHEA</h1>
+                    </div>
+                    <div class="subtitle">
+                        <p>Tenured Assistant Professor of Computer Science, University of Bath | Computer Vision Researcher | AI Advisor</p>
+                        <!--<p>Hi! thanks for stopping by. I am a Machine Learning researcher based in the UK, with experience in Deep Learning, Computer Vision (object detection in medical imaging), Optimization, Plant Intelligence, Audio Signal Processing and semi supervised learning. I like to learn, teach, travel and network.</p>-->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="scrollbuttonbox" id="introbutton">
+            <div class="topbox"></div>
+            <div class="bottombox"></div>
+            <div class="nextbutton">
+                <a class="scrolldownbutton" href="#aboutintro">
+                    <div class="sdbcontent">
+                        <i class="material-icons">keyboard_arrow_down</i>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="contentgroup">
+                <a class="anchor" id="aboutintro"></a>
+                <div class="imagefloat">
+                    <img src="IMG_4718.jpg" />
+                </div>
+                <h2>About me</h2>
+                <p style="text-align:justify;">
+                    I am an interdisciplinary AI researcher and a tenured Assistant Professor in the Department of Computer Science at the University of Bath, where I am a member of the Visual Intelligence group, the Research Centre for Spatial Intelligence and the Centre for Artificial Intelligence. My work bridges Computer Vision with the Arts, Cultural Heritage and Storytelling, developing AI-driven solutions for creative domains. My research focuses on generative models, 3D reconstruction, multimodal large language models, depth estimation, visual saliency and multitask learning, with growing strands in accessible AI (real-time 3D signing avatars for British Sign Language), archival film and artefact restoration, and AI for healthcare. I collaborate with Dr Katharine Fraser (Mechanical Engineering, Bath) on cardiac flow analysis.
+                </p>
+                <p style="text-align:justify;">
+                    Beyond research, I am passionate about Cognitive Systems and AI Ethics, exploring how AI interacts with human cognition and understanding its ethical and societal impacts. My goal is to develop AI systems that are responsible and inclusive. I am a Fellow of the Higher Education Academy (FHEA) and have been awarded three fellowships: the Perplexity AI Business Fellowship (international), the Elevate Leadership Fellowship (Ubele Foundation, UK-wide) and the Impact and Knowledge Exchange Fellowship. In 2026 I received the Faculty of Science Recognising Excellence Award.
+                </p>
+                <p style="text-align:justify;">
+                    I work closely with industry and the public sector. I am Chief AI Advisor to <a href="https://www.silencespeaks.co.uk/" target="_blank">Silence Speaks</a>: methods from my advisory work form the company's deployed British Sign Language avatar pipeline, now in use at Leeds Teaching Hospitals NHS Trust and with Cambridgeshire County Council, and the partnership has grown into an Innovate UK Accelerated Knowledge Transfer project on photorealistic 3D animatable BSL avatars and an industry co-funded PhD studentship. I have also advised Deaf Village UK, the United Nations and Dev TV, and was an invited delegate at the United Nations Office at Geneva and an invited speaker at The National Archives, Kew (April 2026). I regularly comment on AI in the media, including a live BBC Radio interview on World Wide Web Day (1 August 2026).
+                </p>
+                <h3>Teaching &amp; Mentorship</h3>
+                <p style="text-align:justify;">
+                    At Bath I teach Visual Computing (CM22010) and Machine Learning (CM22009), and I have taught Computer Vision, AI Ethics and AI Product Management. Having worked in multinational corporate teams, I integrate real-world AI applications into my courses, particularly those in the creative industries. Teaching for me is more than knowledge transfer: it is about inspiring creativity and fostering an inclusive classroom where students engage in cutting-edge AI projects. I received a Teaching Excellence Award in 2022, and by invitation I have delivered tutorials at the BMVA Computer Vision Summer School (Durham, July 2026) and the Bath Machine Learning Summer School (August 2026).
+                </p>
+                <p style="text-align:justify;">
+                    I currently supervise four PhD students at Bath and co-supervise a doctoral researcher at the University of Geneva, and I co-supervised a PhD student at EPFL to completion in 2024. In total I have supervised 5 PhD students, 26 Master's research students and 18 Bachelor's students across the UK, US, Switzerland and China; supervised student projects have become CVPR 2026 Workshop papers, including a Best Poster award. I am always open to supervising doctoral students passionate about AI, Computer Vision and interdisciplinary AI applications. If you are interested in impact-driven AI research at the confluence of AI and the creative domains, accessibility or Responsible AI, feel free to reach out at db2466 (at) bath (dot) ac (dot) uk.
+                </p>
+                <h3>Leadership &amp; Impact</h3>
+                <p style="text-align:justify;">
+                    I serve as the Department's Athena SWAN Chair and EDI Advocate, leading the Departmental Self-Assessment Team (DSAT) and co-leading the Department's Athena Swan Silver application, and sitting on the Equality, Diversity &amp; Inclusion Committee. In the wider community, I am Publicity Chair of CVPR 2025 and CVPR 2026, Broadening Participation Chair and Publicity Chair of CVPR 2027, and an Area Chair for WACV 2026. I lead the <a href="https://ai4va-eccv.github.io/" target="_blank">AI for Visual Arts (AI4VA)</a> workshop series (ECCV 2024, ICCV 2025, CVPR 2026 and ECCV 2026), and I co-organise the Women in Computer Vision (WiCV) workshop at CVPR (Seattle 2024 and Nashville 2025). I was also a mentor for Women in Computer Vision at ECCV 2024 (Milan). Additionally, I curate events for early-career researchers, fostering collaboration and networking opportunities both nationally and internationally. I volunteer for Teach for India and EduCare (a non-profit initiative for teaching children and empowering girls). Through these efforts, I aim to bring STEM to communities inclusive of all representations: gender, sexual orientation, nationality, race and more.
+                </p>
+                <h3>Expertise Related to UN Sustainable Development Goals</h3>
+                <p style="text-align:justify;">
+                    My work contributes towards the <strong>UN Sustainable Development Goals (SDGs):</strong>
+                    <ul>
+                        <li><strong>SDG 4:</strong> Quality Education</li>
+                        <li><strong>SDG 5:</strong> Gender Equality</li>
+                        <li><strong>SDG 10:</strong> Reduced Inequalities</li>
+                    </ul>
+                </p>
+                <p style="text-align:justify;">
+                    I completed my PhD in Computer Vision (2019&ndash;2023) at the Image and Visual Representation Lab (IVRL), EPFL, Lausanne, Switzerland, followed by a postdoctoral position at EPFL with ETH Zurich (2023&ndash;2024). I am grateful to have been mentored by the likes of <a href="https://people.epfl.ch/sabine.susstrunk">Prof. Sabine S&uuml;sstrunk</a>, <a href="https://people.epfl.ch/mathieu.salzmann">Dr Mathieu Salzmann</a>, <a href="https://people.epfl.ch/pascal.fua/bio?lang=en">Prof. Pascal Fua</a> and <a href="http://ccmp.knu.ac.kr/people.html">Prof. Anand Paul</a>. I hold an MSc in Computer Science from Kyungpook National University, South Korea (Best MSc Thesis Award), and a BTech in Computer Science from Christ University, India. Before my PhD, I was a Deep Learning Research Engineer and then Project Lead at the Samsung&ndash;POSTECH Intelligent Media Research Centre, South Korea (collaborating with MIT CSAIL), a Machine Learning Researcher on the Brain Korea 21+ project, and a Google Summer of Code and Google Research intern.
+                </p>
+
+                <div class="contact">
+                    <!--<div class="contactitem">
+                        <iframe id="twitter-widget-0" scrolling="no" frameborder="0" allowtransparency="true" class="twitter-follow-button twitter-follow-button-rendered" title="Twitter Follow Button" src="http://platform.twitter.com/widgets/follow_button.39f7ee9fffbd122b7a37a520dbdaebc6.en.html#dnt=false&amp;id=twitter-widget-0&amp;lang=en&amp;screen_name=deblinaforAI&amp;show_count=false&amp;show_screen_name=true&amp;size=l&amp;time=1476631955568" style="position: static; visibility: visible; width: 179px; height: 28px;" data-screen-name="deblinaforAI"></iframe>
+                        <script id="twitter-wjs" src="http://platform.twitter.com/widgets.js"></script>
+                        <script>!function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https'; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = p + '://platform.twitter.com/widgets.js'; fjs.parentNode.insertBefore(js, fjs); } }(document, 'script', 'twitter-wjs');</script>
+                    </div>-->
+                    <div class="contactitem">
+                        <a href="https://twitter.com/deblinaforAI" target="_blank">
+                            <img src="twitter.png" width="70" height="70" border="0" >
+                        </a>                    
+                    </div>
+                    <div class="contactitem">
+                        <a href="https://www.linkedin.com/in/deblina/" target="_blank">
+                            <img src="https://static.licdn.com/scds/common/u/img/webpromo/btn_viewmy_160x33.png" width="170" height="36" border="0" alt="View my LinkedIn profile">
+                        </a>                    
+                    </div>
+					<div class="contactitem">
+						<a href="https://github.com/deblinaml" target="_blank">
+							<img src="github.jpg" width="70" height="70" border="0" alt="View my Github profile">
+							
+						</a>
+					</div>
+                    <div class="contactitem">
+                        <a href="https://scholar.google.com/citations?user=F3YYEmMAAAAJ&hl=en&authuser=3" target="_blank">
+                            <img src="scholar.png" width="70" height="70" border="0" alt="View my Google Scholar profile">
+                            
+                        </a>
+                    </div>
+                    <div class="contactitem">
+                        <a href="https://www.queerinai.com/" target="_blank">
+                            <img src="qia.png" width="70" height="70" border="0" alt="Member of Queer in AI">
+                            
+                        </a>
+                    </div>
+                    
+                    <!--<div class="contactitem">
+                        <p> <b>Email:</b> deblinafordata@gmail.com </p>
+                    </div>-->
+                </div>
+
+                <div class="scrollbuttonbox">
+                    <div class="topbox"></div>
+                    <div class="bottombox"></div>
+                    <div class="nextbutton">
+                        <a class="scrolldownbutton" href="#news">
+                            <div class="sdbcontent">
+                                <i class="material-icons">keyboard_arrow_down</i>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contentgroup">
+                <a class="anchor" id="news"></a>
+                <h2>News</h2>
+                <div class="news">
+                    <ul>
+                        <li><p><strong>16 October 2026 (upcoming):</strong> Exhibiting at the Sherborne Alan Turing centenary Tech Fest, and delivering a BMVA technical session on AI for the Visual Arts in December 2026.</p></li>
+                        <li><p><strong>September 2026:</strong> Our paper with Yin Zhang (University of Geneva), <em>Author-Stigmatising Hazards in LLM-Generated Literary Translation: Evaluation and Mitigation through Danmei-EPV</em>, has been accepted to the <strong>Findings of EMNLP 2026</strong> (Budapest).</p></li>
+                        <li><p><strong>2026:</strong> Appointed <strong>Broadening Participation Chair and Publicity Chair of CVPR 2027</strong>, and Area Chair for WACV 2026.</p></li>
+                        <li><p><strong>August 2026:</strong> Invited tutorial at the Bath Machine Learning Summer School.</p></li>
+                        <li><p><strong>July 2026:</strong> Received the Faculty of Science <strong>Recognising Excellence Award</strong>, University of Bath.</p></li>
+                        <li><p><strong>2026:</strong> Awarded an <strong>Innovate UK Accelerated Knowledge Transfer (AKT)</strong> grant (&pound;35,000) with Silence Speaks Ltd to evaluate and prototype real-time, photorealistic 3D animatable British Sign Language (BSL) avatars, and to create a richly annotated 3D dataset of 5,000 BSL signs evaluated with Deaf end-users. Silence Speaks is also co-funding a <strong>URSA 50:50 PhD studentship</strong> in my group.</p></li>
+                        <li><p><strong>9 September 2026:</strong> Chaired the 4th <a href="https://ai4va-eccv.github.io/" target="_blank">AI for Visual Arts (AI4VA)</a> workshop at ECCV 2026, Malm&ouml;, Sweden.</p></li>
+                        <li><p><strong>1 August 2026:</strong> Interviewed live on BBC Radio for World Wide Web Day, discussing AI and the web.</p></li>
+                        <li><p><strong>28 July 2026:</strong> Quoted in <a href="https://www.hellorayo.co.uk/greatest-hits/surrey-east-hampshire/news/surrey-nhs-trusts-using-ai" target="_blank">SurreyLive / Local Democracy Reporting Service</a> on the governance of AI tools across NHS trusts.</p></li>
+                        <li><p><strong>13&ndash;17 July 2026:</strong> Invited speaker at the 29th <a href="https://cvss.bmva.org/" target="_blank">BMVA Computer Vision Summer School (CVSS 2026)</a>, Durham University.</p></li>
+                        <li><p><strong>24 June 2026:</strong> Led the Faculty of Science's workshop organisation for the University of Bath Doctoral Festival of Ideas.</p></li>
+                        <li><p><strong>3 June 2026:</strong> At CVPR 2026 (Denver): keynote at the 2nd International Workshop on <a href="https://sint4ch.fbk.eu/" target="_blank">Spatial Intelligence for Cultural Heritage (SINT4CH)</a> on multimodal learning and spatial intelligence for creative and cultural domains; lead organiser of the 3rd <a href="https://ai4va-cvpr.github.io/" target="_blank">AI4VA</a> workshop; and two student-led papers in the CVPR 2026 Workshop proceedings (<em>SpatialDiff</em> with Filippo Santiano and Zejun Zhang, and <em>AttnMCN</em> with Louis King), one of which was awarded <strong>Best Poster</strong> among 113. I also serve as Publicity Chair of CVPR 2026.</p></li>
+                        <li><p><strong>April 2026:</strong> Invited delegate at the United Nations Office at Geneva (UNRISD), discussing AI for arts, culture and governance with policymakers and journalists, and invited speaker at The National Archives, Kew, on AI for archival restoration.</p></li>
+                        <li><p><strong>2026:</strong> Panellist at the BCSWomen Lovelace Colloquium 2026.</p></li>
+                        <li><p><strong>February 2026:</strong> New preprint with Katharine Fraser's group at Bath: <a href="https://arxiv.org/abs/2602.23035" target="_blank"><em>Learning Disease-Sensitive Latent Interaction Graphs From Noisy Cardiac Flow Measurements</em></a>.</p></li>
+                                                <li><p><strong>19 October 2025:</strong> Organised the 2nd <a href="https://sites.google.com/view/ai4vaiccv-2025" target="_blank">AI4VA</a> workshop and co-organised the COMIQ workshop (with Oxford, UAB and UNIFI) at ICCV 2025, Honolulu.</p></li>
+                        <li><p><strong>September 2025:</strong> Appointed Chair of the Department of Computer Science's Athena SWAN Self-Assessment Team.</p></li>
+                        <li><p><strong>2025:</strong> Awarded three fellowships: the Perplexity AI Business Fellowship (international), the Elevate Leadership Fellowship (UK-wide) and the Impact and Knowledge Exchange Fellowship. Became a Fellow of the Higher Education Academy (FHEA).</p></li>
+                        <li><p><strong>June 2025:</strong> Co-organised the <a href="https://arxiv.org/abs/2511.08748" target="_blank">Women in Computer Vision (WiCV) workshop</a> at CVPR 2025, Nashville, served as Publicity Chair of CVPR 2025, and was a panellist on research impact at CVPR 2025 ("AI for Everyone") and at RBC Borealis, Toronto ("AI for Society").</p></li>
+                        <li><p><strong>29 September 2024:</strong> General Chair of the 1st <a href="https://sites.google.com/view/ai4vaeccv2024" target="_blank">AI4VA</a> workshop and challenges at ECCV 2024, Milan; co-organiser of WiCV at CVPR 2024, Seattle. Three papers at ECCV 2024: <em>Unlocking Comics: The AI4VA Dataset</em>, <em>Data Augmentation via Latent Diffusion for Saliency Prediction</em> and <em>CoDA</em>.</p></li>
+                        <li><p><strong>2024&ndash;2025:</strong> Advisory engagement with Silence Speaks: methods from this work form the company's photorealistic BSL avatar pipeline, now deployed in the Audiology department at Leeds Teaching Hospitals NHS Trust and in a transport deployment with Cambridgeshire County Council. I have also advised Deaf Village UK, the United Nations and Dev TV.</p></li>
+                        <li><p>Invited guest on the SuperDataScience podcast on <em>Deep Learning for Machine Vision</em> (20K+ views). <a href="https://soundcloud.com/superdatascience/sds-439-deep-learning-for-machine-vision" target="_blank">Listen here</a>.</p></li>
+                        <li><p>Invited guest on the SuperDataScience podcast on <em>Solving an Optimisation Problem with a Custom-Built Algorithm</em> (15K+ views). <a href="https://www.superdatascience.com/sds-043-solving-optimization-problem-custom-built-algorithm/" target="_blank">Listen here</a>.</p></li>
+                    </ul>
+                </div>
+
+                <div class="scrollbuttonbox">
+                    <div class="topbox"></div>
+                    <div class="bottombox"></div>
+                    <div class="nextbutton">
+                        <a class="scrolldownbutton" href="#publications">
+                            <div class="sdbcontent">
+                                <i class="material-icons">keyboard_arrow_down</i>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="contentgroup">
+                <a class="anchor" id="publications"></a>
+                
+
+                <h2>Publications</h2>
+                <p style="text-align:justify;">Selected publications, most recent first. A full list is available on <a href="https://scholar.google.com/citations?user=F3YYEmMAAAAJ&amp;hl=en" target="_blank">Google Scholar</a> and the <a href="https://researchportal.bath.ac.uk/en/persons/deblina-bhattacharjee" target="_blank">Bath Research Portal</a>.</p>
+                <div class="publications">
+                    <div class="publication">
+                        <h3>Author-Stigmatising Hazards in LLM-Generated Literary Translation: Evaluation and Mitigation through Danmei-EPV</h3>
+                        <div class="pcontent">
+                            <div class="authors">Yin Zhang, Deblina Bhattacharjee</div>
+                            <div class="venue">Findings of EMNLP 2026 (to appear), Budapest, Hungary</div>
+                            <div class="col justify-content-center text-center">
+                    <img src="pub-danmei-epv.jpg" style="width:100%; margin-right:-10px; margin-top:-10px;">
+            </div>
+                            <label for="pub16">Abstract</label>
+                            <div class="paperlink"></div>
+                            <input type="checkbox" id="pub16" />
+                            <div class="abstract">Fluent English can carry source-author stigmatisation hazards: a translation can make a character&rsquo;s stance read as authorial endorsement (voice collapse), turn a culturally specific expression into an English term carrying unrelated stigma (connotation flattening), or strip the hedging from censorship-constrained statements (hedging erasure). We introduce Danmei-EPV, a 412-item diagnostic benchmark grounded in documented reception harm to a Chinese web-fiction author, and use it to evaluate eight large language models and two machine-translation baselines with two-pass human evaluation. Newer and more fluent models are not necessarily safer, and hazard rates are 4.9&ndash;6&times; higher than on broader Chinese web fiction. We propose rhetorical-silence prompting (RSP), which asks the model to make its translation losses explicit, reducing voice collapse by 27.4%, connotation flattening by 19.6% and hedging erasure by 8.9% on average across models, without retraining. Standard metrics such as BLEU and COMET see none of these hazards.</div>
+                        </div>
+                    </div>
+
+                    <div class="publication">
+                        <h3>Enhancing Spatial Understanding in Vision-Language Segmentation via Diffusion-Based Pipelines</h3>
+                        <div class="pcontent">
+                            <div class="authors">Filippo Santiano* (equal contribution), Zejun Zhang* (equal contribution), Deblina Bhattacharjee</div>
+                            <div class="venue">CVPR 2026 Workshops (AI for Visual Arts), Denver, USA</div>
+                            <div class="col justify-content-center text-center">
+                    <img src="pub-spatialdiff.jpg" style="width:100%; margin-right:-10px; margin-top:-10px;">
+            </div>
+                            <label for="pub17">Abstract</label>
+                            <div class="paperlink">
+                                <a href="https://openaccess.thecvf.com/CVPR2026_workshops/AI4VA" target="_blank">Paper link (CVF Open Access)</a>
+                            </div>
+                            <input type="checkbox" id="pub17" />
+                            <div class="abstract">Referring image segmentation models exhibit persistent spatial-reasoning gaps, including ambiguity, multi-instance confusion and relational phrases such as &ldquo;left of&rdquo; or &ldquo;behind&rdquo;, which are especially pronounced in stylised and artistic imagery. We present SpatialDiff, a resource-light, diffusion-centred pipeline that combines multimodal-LLM chain-of-thought enrichment of referring expressions, a context-preserving adapter that refines frozen CLIP text tokens for spatial terms, a LoRA-tuned latent diffusion model, and SAM-based mask refinement that converts coarse diffusion logits into crisp boundaries. Trained on RefCOCO/+/g together with spatial-reasoning data on a single 24&nbsp;GB GPU, SpatialDiff reaches 92.17% oIoU on RefCOCO testA, 88.43% on RefCOCO+ testA and 84.61% on RefCOCOg, outperforming transformer-based and heavier multimodal-LLM systems.</div>
+                        </div>
+                    </div>
+
+                    <div class="publication">
+                        <h3>Attention-Enhanced Multi-ControlNet for Artist-Aligned Manga Background Generation</h3>
+                        <div class="pcontent">
+                            <div class="authors">Louis King, Deblina Bhattacharjee</div>
+                            <div class="venue">CVPR 2026 Workshops (AI for Visual Arts), Denver, USA</div>
+                            <div class="col justify-content-center text-center">
+                    <img src="pub-attnmcn.jpg" style="width:100%; margin-right:-10px; margin-top:-10px;">
+            </div>
+                            <label for="pub18">Abstract</label>
+                            <div class="paperlink">
+                                <a href="https://openaccess.thecvf.com/CVPR2026_workshops/AI4VA" target="_blank">Paper link (CVF Open Access)</a>
+                            </div>
+                            <input type="checkbox" id="pub18" />
+                            <div class="abstract">Automated comic production aims to ease the heavy time and cost burdens on artists, yet current AI tools centre on text-driven workflows that sideline visual creativity. We propose AttnMCN (Attention-enhanced Multi-ControlNet), an image-first pipeline that transforms artist sketches into polished manga backgrounds and seamlessly harmonises them with hand-drawn foregrounds. Built on Multi-ControlNet, our method fuses structural cues from a Canny ControlNet with global colour guidance from a Tile ControlNet, and introduces adaptive 2D positional encoding together with multi-resolution self-attention modules applied to the fused ControlNet residuals before injection into the denoising U-Net. On Manga109 and AMP-D, AttnMCN substantially outperforms all baselines: caption-augmented image-to-image records roughly 200% worse LPIPS, and standard Multi-ControlNet without attention shows 166.6% worse LPIPS, 666.6% worse down-sampled MSE and 231.4% worse FID. We additionally benchmark against IP-Adapter and ControlNet++ and demonstrate superior perceptual fidelity. Our results demonstrate that prioritising sketches over prompts preserves artistic intent and offers a practical path to artist-aligned AI tooling for the visual arts.</div>
+                        </div>
+                    </div>
+
+                    <div class="publication">
+                        <h3>Learning Disease-Sensitive Latent Interaction Graphs From Noisy Cardiac Flow Measurements</h3>
+                        <div class="pcontent">
+                            <div class="authors">Viraj Patel, Marko Grujic, Philipp Aigner, Theodor Abart, Marcus Granegger, Deblina Bhattacharjee, Katharine Fraser</div>
+                            <div class="venue">arXiv preprint arXiv:2602.23035, 2026 (under review)</div>
+                            <div class="col justify-content-center text-center">
+                    <img src="pub-cardiac-graphs.jpg" style="width:100%; margin-right:-10px; margin-top:-10px;">
+            </div>
+                            <label for="pub19">Abstract</label>
+                            <div class="paperlink">
+                                <a href="https://arxiv.org/abs/2602.23035" target="_blank">arXiv link</a>
+                            </div>
+                            <input type="checkbox" id="pub19" />
+                            <div class="abstract">Cardiac blood flow patterns contain rich information about disease severity and clinical interventions, yet current imaging and computational methods fail to capture underlying relational structures of coherent flow features. We propose a physics-informed, latent relational framework to model cardiac vortices as interacting nodes in a graph. Our model combines a neural relational inference architecture with physics-inspired interaction energy and birth&ndash;death dynamics, yielding a latent graph sensitive to disease severity and intervention level. We first develop the method using computational fluid dynamics simulations of aortic coarctation, where learned interaction graphs reveal increasingly structured vortex interactions as vessel narrowing progresses; the resulting graph entropy exhibits a strong monotonic relationship with coarctation severity. We then evaluate the framework on fluid&ndash;structure interaction simulations of intracranial aneurysms, and finally apply the approach to ultrasound-derived flow fields of a left ventricle under varying levels of ventricular assist device support, demonstrating cross-modal generalisation to imaging data. Across all datasets, latent interaction graphs and graph entropy produce interpretable markers of disease severity and intervention.</div>
+                        </div>
+                    </div>
+
+                    <div class="publication">
+                        <h3>WiCV at CVPR 2025: The Women in Computer Vision Workshop</h3>
+                        <div class="pcontent">
+                            <div class="authors">Estefania Talavera, Deblina Bhattacharjee, Himangi Mittal, Mengwei Ren, Karen Sanchez, Carla Muntean, JungEun Kim, Mona Jalal</div>
+                            <div class="venue">Workshop report, arXiv:2511.08748, 2025</div>
+                            <label for="pub20">Abstract</label>
+                            <div class="paperlink">
+                                <a href="https://arxiv.org/abs/2511.08748" target="_blank">arXiv link</a>
+                            </div>
+                            <input type="checkbox" id="pub20" />
+                            <div class="abstract">A report on the Women in Computer Vision Workshop held alongside CVPR 2025 in Nashville, Tennessee, summarising the programme, attendance, the mentorship programme and trends across previous WiCV editions.</div>
+                        </div>
+                    </div>
+
+                    <div class="publication">
+                        <h3>Data Augmentation via Latent Diffusion for Saliency Prediction</h3>
+                        <div class="pcontent">
+                            <div class="authors">Bahar Aydemir, Deblina Bhattacharjee, Tong Zhang, Mathieu Salzmann, Sabine S&uuml;sstrunk</div>
+                            <div class="venue">ECCV 2024, Milan, Italy</div>
+                            <label for="pub21">Abstract</label>
+                            <div class="paperlink">
+                                <a href="https://arxiv.org/abs/2409.07307" target="_blank">Paper link</a>
+                            </div>
+                            <input type="checkbox" id="pub21" />
+                            <div class="abstract">Saliency prediction models are constrained by the limited diversity and quantity of labelled data. Standard data augmentation techniques such as rotating and cropping alter scene composition, affecting saliency. We propose a novel data augmentation method for deep saliency prediction that edits natural images while preserving the complexity and variability of real-world scenes. Since saliency depends on both high-level and low-level features, our approach learns photometric and semantic attributes such as colour, contrast, brightness and class. We introduce a saliency-guided cross-attention mechanism that enables targeted edits on the photometric properties, thereby enhancing saliency within specific image regions. The augmented images improve the performance of several saliency models on public benchmarks, and a user study confirms that the models&rsquo; predictions on edited images align well with human visual attention.</div>
+                        </div>
+                    </div>
+
+                    <div class="publication">
+                        <h3>CoDA: Instructive Chain-of-Domain Adaptation with Severity-Aware Visual Prompt Tuning</h3>
+                        <div class="pcontent">
+                            <div class="authors">Ziyang Gong, Fuhao Li, Yupeng Deng, Deblina Bhattacharjee, Xianzheng Ma, Xiangwei Zhu, Zhenming Ji</div>
+                            <div class="venue">ECCV 2024, Milan, Italy</div>
+                            <label for="pub22">Abstract</label>
+                            <div class="paperlink">
+                                <a href="https://arxiv.org/abs/2403.17369" target="_blank">Paper link</a>
+                            </div>
+                            <input type="checkbox" id="pub22" />
+                            <div class="abstract">Unsupervised domain adaptation aims to adapt models from labelled source domains to unlabelled target domains, yet existing methods struggle with adverse scenes because they lack instructions about the differences between those scenes. CoDA addresses this with two components: a Chain-of-Domain strategy that divides adverse scenes into easy and hard categories and adapts the model progressively from easy to hard, and Severity-Aware Visual Prompt Tuning, which divides images into low- and high-severity groups and uses this to guide visual prompts and adapters towards severity-shared features. CoDA achieves state-of-the-art results on widely used adverse-scene benchmarks, including gains of 4.6% mIoU on Foggy Driving and 10.3% on Foggy Zurich.</div>
+                        </div>
+                    </div>
+
+                    <div class="publication">
+                        <h3>Unlocking Comics: The AI4VA Dataset for Visual Understanding</h3>
+                        <div class="pcontent">
+                            <div class="authors">Peter Gr&ouml;nquist, Deblina Bhattacharjee, Bahar Aydemir, Baran Ozaydin, Tong Zhang, Mathieu Salzmann, Sabine S&uuml;sstrunk</div>
+                            <div class="venue">ECCV 2024 Workshops (AI for Visual Arts), Milan, Italy</div>
+                            <label for="pub23">Abstract</label>
+                            <div class="paperlink">
+                                <a href="https://doi.org/10.1007/978-3-031-92808-6_10" target="_blank">Paper link</a>
+                            </div>
+                            <input type="checkbox" id="pub23" />
+                            <div class="abstract">Comics datasets are scarce owing to copyright and stylistic constraints. We introduce a novel dataset of Franco-Belgian comics from the 1950s annotated for depth estimation, semantic segmentation, saliency detection and character identification, spanning two distinct and consistent art styles and incorporating object concepts and labels drawn from natural images. The dataset serves as a resource for computational creativity and the digitisation of art and storytelling, and underpins the AI4VA Workshop Challenges on depth and saliency. Dataset: <a href="https://github.com/IVRL/AI4VA" target="_blank">github.com/IVRL/AI4VA</a>.</div>
+                        </div>
+                    </div>
+
+                    <div class="publication">
+                        <h3>OMH: Structured Sparsity via Optimally Matched Hierarchy for Unsupervised Semantic Segmentation</h3>
+                        <div class="pcontent">
+                            <div class="authors">Baran Ozaydin, Tong Zhang, Deblina Bhattacharjee, Sabine S&uuml;sstrunk, Mathieu Salzmann</div>
+                            <div class="venue">arXiv preprint arXiv:2403.06546, 2024</div>
+                            <label for="pub24">Abstract</label>
+                            <div class="paperlink">
+                                <a href="https://arxiv.org/abs/2403.06546" target="_blank">arXiv link</a>
+                            </div>
+                            <input type="checkbox" id="pub24" />
+                            <div class="abstract">Unsupervised Semantic Segmentation (USS) involves segmenting images without relying on predefined labels, aiming to alleviate the burden of extensive human labelling. Existing methods utilise features generated by self-supervised models and specific priors for clustering; however, their clustering objectives are not involved in the optimisation of the features during training, and the resulting segments may not align well with the clustering objective. We introduce Optimally Matched Hierarchy (OMH), which imposes structured sparsity on the feature space so that features encode information at different levels of granularity, learning a soft but sparse hierarchy among parallel clusters through Optimal Transport. OMH yields better unsupervised segmentation performance than existing USS methods.</div>
+                        </div>
+                    </div>
+
+                    <div class="publication">
+                        <h3>WiCV@CVPR2024: The Thirteenth Women In Computer Vision Workshop at the Annual CVPR Conference</h3>
+                        <div class="pcontent">
+                            <div class="authors">Asra Aslam, Sachini Herath, Ziqi Huang, Estefania Talavera, Deblina Bhattacharjee, Himangi Mittal, et al.</div>
+                            <div class="venue">Workshop report, arXiv:2411.02445, 2024</div>
+                            <label for="pub25">Abstract</label>
+                            <div class="paperlink">
+                                <a href="https://arxiv.org/abs/2411.02445" target="_blank">arXiv link</a>
+                            </div>
+                            <input type="checkbox" id="pub25" />
+                            <div class="abstract">A report on the thirteenth Women in Computer Vision Workshop, held alongside CVPR 2024 in Seattle, summarising the programme, participation and mentorship outcomes.</div>
+                        </div>
+                    </div>
+
+			 <div class="publication">
+                        <h3>Vision Transformer Adapters for Generalizable Multitask Learning</h3>
+                        <div class="pcontent">
+                            <div class="authors">Deblina Bhattacharjee, Sabine Süsstrunk, Mathieu Salzmann</div>
+                            <div class="venue">ICCV 2023, Paris, France</div>
+                            <div class="col justify-content-center text-center">
+                    <img src="overall-vision-adapter-architecture.png" style="width:100%; margin-right:-10px; margin-top:-10px;">
+            </div>
+                            <label for="pub15">Abstract</label>
+                            <div class="paperlink">
+                                <a href="https://arxiv.org/pdf/2308.12372.pdf" target="_blank">Paper link</a>
+                            </div>
+                            <input type="checkbox" id="pub15" />
+                            <div class="abstract">
+				We introduce the first multitasking vision transformer adapters that learn generalizable task affinities which can be applied to novel tasks and domains. Integrated into an off-the-shelf vision transformer backbone, our adapters can simultaneously solve multiple dense vision tasks in a parameter-efficient manner, unlike existing multitasking transformers that are parametrically expensive. In contrast to concurrent methods, we do not require retraining or fine-tuning whenever a new task or domain is added. We introduce a task-adapted attention mechanism within our adapter framework that combines gradient-based task similarities with attention-based ones. The learned task affinities generalize to the following settings: zero-shot task transfer, unsupervised domain adaptation, and generalization without fine-tuning to novel domains. We demonstrate that our approach outperforms not only the existing convolutional neural network-based multitasking methods but also the vision transformer-based ones.    
+			    </div>
+                    </div>
+
+		            <div class="publication">
+                        <h3>Dense Multitask Learning To Reconfigure Comics</h3>
+                        <div class="pcontent">
+                            <div class="authors">Deblina Bhattacharjee, Sabine Süsstrunk, Mathieu Salzmann</div>
+                            <div class="venue">CVPR 2023 Workshops (WiCV), Vancouver, Canada</div>
+                            <div class="col justify-content-center text-center">
+                    <img src="architecture.png" style="width:100%; margin-right:-10px; margin-top:-10px;">
+            </div>
+                            <label for="pub14">Abstract</label>
+                            <div class="paperlink">
+                                <a href="https://openaccess.thecvf.com/content/CVPR2023W/WiCV/papers/Bhattacharjee_Dense_Multitask_Learning_To_Reconfigure_Comics_CVPRW_2023_paper.pdf" target="_blank">Paper link</a>
+                            </div>
+                            <input type="checkbox" id="pub14" />
+                            <div class="abstract">
+				In this paper, we develop a MultiTask Learning (MTL) model to achieve dense predictions for comics panels to, in turn, facilitate the transfer of comics from one publication channel to another by assisting authors in the task of reconfiguring their narratives. Our MTL method can successfully identify the semantic units as well as the embedded notion of 3D in comics panels. This is a significantly challenging problem because comics comprise disparate artistic styles, illustrations, layouts, and object scales that depend on the author’s creative process. Typically, dense image-based prediction techniques require a large corpus
+of data. Finding an automated solution for dense prediction in the comics domain, therefore, becomes more difficult with the lack of ground-truth dense annotations for
+the comics images. To address these challenges, we develop the following solutions- we leverage a commonly used strategy known as unsupervised image-to-image translation, which allows us to utilize a large corpus of real-world annotations; - we utilize the results of the translations
+to develop our multitasking approach that is based on a vision transformer backbone and a domain transferable attention module; -we study the feasibility of integrating our
+MTL dense-prediction method with an existing retargeting
+method, thereby reconfiguring comics.
+			    </div>
+                    </div>
+				    
+			
+                    <div class="publication">
+                        <h3>MulT: An End-to-End Multitask Learning Transformer</h3>
+                        <div class="pcontent">
+                            <div class="authors">Deblina Bhattacharjee, Tong Zhang, Sabine Süsstrunk, Mathieu Salzmann</div>
+                            <div class="venue">CVPR 2022, New Orleans, USA</div>
+                            <div class="col justify-content-center text-center">
+                    <img src="mult1.png" style="width:100%; margin-right:-10px; margin-top:-10px;">
+            </div>
+                            <label for="pub1">Abstract</label>
+                            <div class="paperlink">
+                                <a href="https://openaccess.thecvf.com/content/CVPR2022/html/Bhattacharjee_MulT_An_End-to-End_Multitask_Learning_Transformer_CVPR_2022_paper.html" target="_blank">Paper link</a>
+                            </div>
+                            <input type="checkbox" id="pub1" />
+                            <div class="abstract">
+                                We propose an end-to-end Multitask Learning Transformer framework, named MulT, to simultaneously learn multiple high-level vision tasks, including depth estimation, semantic segmentation, reshading, surface normal estimation, 2D keypoint detection, and edge detection. Based on the Swin transformer model, our framework encodes the input image into a shared representation and makes predictions for each vision task using task-specific transformer-based decoder heads. At the heart of our approach is a shared attention mechanism modeling the dependencies across the tasks. We evaluate our model on several multitask benchmarks, showing that our MulT framework outperforms both the state-of-the art multitask convolutional neural network models and all the respective single task transformer models. Our experiments further highlight the benefits of sharing attention across all the tasks, and demonstrate that our MulT model is robust and generalizes well to new domains. </div>
+                            </div>
+                    </div>
+			
+			<div class="publication">
+                        <h3> Modeling Object Dissimilarity for Deep Saliency Prediction</h3>
+                        <div class="pcontent">
+                            <div class="authors">Bahar Aydemir* (equal contribution), Deblina Bhattacharjee* (equal contribution), Seungryong Kim, Tong Zhang, Mathieu Salzmann, Sabine Süsstrunk </div>
+                           <div class="venue">Transactions on Machine Learning Research (TMLR 2022)</div>
+                            <div class="col justify-content-center text-center">
+                    <img src="saliency.png" style="width:100%; margin-right:-10px; margin-top:-10px;">
+            </div>
+                            <label for="pub4">Abstract</label>
+                            <div class="paperlink">
+                                <a href="https://arxiv.org/abs/2104.03864" target="_blank">Paper link</a>
+                            </div>
+                            <input type="checkbox" id="pub4" />
+                            <div class="abstract">
+				    Saliency prediction has made great strides over the past two decades, with current techniques modeling low-level information, such as color, intensity and size contrasts, and high-level one, such as attention and gaze direction for entire objects. Despite this, these methods fail to account for the dissimilarity between objects, which humans naturally do. In this paper, we introduce a detection-guided saliency prediction network that explicitly models the differences between multiple objects, such as their appearance and size dissimilarities. Our approach is general, allowing us to fuse our object dissimilarities with features extracted by any deep saliency prediction network. As evidenced by our experiments, this consistently boosts the accuracy of the baseline networks, enabling us to outperform the state-of-the-art models on three saliency benchmarks, namely SALICON, MIT300 and CAT2000.
+				</div>
+                        </div>
+                    </div>
+                   
+                    <div class="publication">
+                        <h3>Estimating Image Depth in the Comics Domain</h3>
+                        <div class="pcontent">
+                            <div class="authors">Deblina Bhattacharjee, Martin Everaert, Mathieu Salzmann, Sabine Süsstrunk</div>
+                            <div class="venue">WACV 2022, Hawaii, USA</div>
+                            <div class="col justify-content-center text-center">
+                    <img src="wacv.png" style="width:100%; margin-right:-10px; margin-top:-10px;">
+            </div>
+                            <label for="pub2">Abstract</label>
+                            <div class="paperlink">
+                                <a href="https://openaccess.thecvf.com/content/WACV2022/papers/Bhattacharjee_Estimating_Image_Depth_in_the_Comics_Domain_WACV_2022_paper.pdf" target="_blank">Paper link</a>
+                            </div>
+                            <input type="checkbox" id="pub2" />
+                            <div class="abstract">
+                                Estimating the depth of comics images is challenging as such images a)are monocular; b) lack ground-truth depth annotations; c) differ across different artistic styles; d) are sparse and noisy. We thus, use an off-the-shelf unsupervised image to image translation method to translate the comics images to natural ones and then use an attention-guided monocular depth estimator to predict their depth. This lets us leverage the depth annotations of existing natural images to train the depth estimator. Furthermore, our model learns to distinguish between text and images in the comics panels to reduce text-based artefacts in the depth estimates. Our method consistently outperforms the existing state-ofthe-art approaches across all metrics on both the DCM and eBDtheque images. Finally, we introduce a dataset to evaluate depth prediction on comics. </div>
+                            </div>
+                    </div>
+
+                    <div class="publication">
+                        <h3>Fidelity Estimation Improves Noisy-Image Classification With Pretrained Networks</h3>
+                        <div class="pcontent">
+                            <div class="authors">Xiaoyu Lin, Deblina Bhattacharjee, Majed El Helou, Sabine Süsstrunk</div>
+                            <div class="venue">IEEE Signal Processing Letters, 2021.</div>
+                            <div class="col justify-content-center text-center">
+                    <img src="fgnic.png" style="width:100%; margin-right:-10px; margin-top:-10px;">
+            </div>
+                            <label for="pub3">Abstract</label>
+                            <div class="paperlink">
+                                <a href="https://arxiv.org/pdf/2106.00673.pdf" target="_blank">Paper link</a>
+                            </div>
+                            <input type="checkbox" id="pub3" />
+                            <div class="abstract">
+                                Image classification has significantly improved using deep learning. This is mainly due to convolutional neural networks (CNNs) that are capable of learning rich feature extractors from large datasets. However, most deep learning classification methods are trained on clean images and are not robust when handling noisy ones, even if a restoration preprocessing step is applied. While novel methods address this problem, they rely on modified feature extractors and thus necessitate retraining. We instead propose a method that can be applied on a pretrained classifier. Our method exploits a fidelity map estimate that is fused into the internal representations of the feature extractor, thereby guiding the attention of the network and making it more robust to noisy data. We improve the noisy-image classification (NIC) results by significantly large margins, especially at high noise levels, and come close to the fully retrained approaches. Furthermore, as proof of concept, we show that when using our oracle fidelity map we even outperform the fully retrained methods, whether trained on noisy or restored images. </div>
+                            </div>
+                    </div>
+
+			
+                    <div class="publication">
+                        <h3>Scaling up an Unsupervised Image-to-Image Translation Framework from Basic to Complex Scenes</h3>
+                        <div class="pcontent">
+                            <div class="authors">Diogo F. N. Silva, St&eacute;phane Chassot, Lo&iuml;c Barras, Deblina Bhattacharjee, Sabine S&uuml;sstrunk</div>
+                            <div class="venue">American Journal of Computer Science and Technology, vol. 4, no. 4, 2021</div>
+                            <div class="paperlink">
+                                <a href="https://scholar.google.com/citations?user=F3YYEmMAAAAJ&amp;hl=en" target="_blank">Paper link (via Google Scholar)</a>
+                            </div>
+                        </div>
+                    </div>
+
+                     <div class="publication">
+                        <h3>DUNIT: Detection-based Unsupervised Image-to-Image Translation</h3>
+                        <div class="pcontent">
+                            <div class="authors"> Deblina Bhattacharjee, Seungryong Kim, Guillaume Vizier, Mathieu Salzmann </div>
+                            <div class="venue">CVPR 2020, Seattle, USA</div>
+                            <div class="col justify-content-center text-center">
+                    <img src="results1.png" style="width:100%; margin-right:-10px; margin-top:-10px;">
+            </div>
+                            <label for="pub5">Abstract</label>
+                            <div class="paperlink">
+                                <a href="https://openaccess.thecvf.com/content_CVPR_2020/html/Bhattacharjee_DUNIT_Detection-Based_Unsupervised_Image-to-Image_Translation_CVPR_2020_paper.html" target="_blank">Paper link</a>
+                            </div>
+                            <input type="checkbox" id="pub5" />
+                            <div class="abstract">
+                                Image-to-image translation has made great strides in recent years, with current techniques being able to handle unpaired training images and to account for the multi-modality of the translation problem. Despite this, most methods treat the image as a whole, which makes the results they produce for content-rich scenes less realistic. In this paper, we introduce a Detection-based Unsupervised Image-to-image Translation (DUNIT) approach that explicitly accounts for the object instances in the translation process. To this end, we extract separate representations for the global image and for the instances, which we then fuse into a common representation from which we generate the translated image. This allows us to preserve the detailed content of object instances, while still modeling the fact that we aim to produce an image of a single consistent scene. We introduce an instance consistency loss to maintain the coherence between the detections. Furthermore, by incorporating a detector into our architecture, we can still exploit object instances at test time. As evidenced by our experiments, this allows us to outperform the state-of-the-art unsupervised image-to-image translation methods. Furthermore, our approach can also be used as an unsupervised domain adaptation strategy for object detection, and it also achieves state-of-the-art performance on this task. </div>
+                            </div>
+                    </div>
+                    
+                    <div class="publication">
+                        <h3>Medical Image Analysis using a Novel Learning Algorithm based on Plant Intelligence</h3>
+                        <div class="pcontent">
+                            <div class="authors">Deblina Bhattacharjee</div>
+                            <div class="venue">NeurIPS 2017 Women in Machine Learning (WiML) Workshop, Long Beach, California, USA</div>
+                            <div class="col justify-content-center text-center">
+                    <img src="image-pgsa.png" style="width:100%; margin-right:-10px; margin-top:-10px;">
+            </div>
+                            <!--<label for="pub1">Abstract</label>-->
+                            <div class="paperlink"></div>
+                            <input type="checkbox" id="pub6" />
+                            <div class="abstract">Abstract content goes here...</div>
+                        </div>
+                    </div>
+
+                    <div class="publication">
+                        <h3> An Immersive Learning Model Using Evolutionary Learning</h3>
+                        <div class="pcontent">
+                            <div class="authors">Deblina Bhattacharjee, Anand Paul, J.H. Kim and P. Karthigaikumar </div>
+                            <div class="venue">Elsevier Computers &amp; Electrical Engineering, vol. 65, pp. 236&ndash;249, 2018</div>
+                            <div class="col justify-content-center text-center">
+                    <img src="vrlearning.jpg" style="width:70%; margin-right:-10px; margin-top:-10px;">
+            </div>
+                            <label for="pub7">Abstract</label>
+                            <div class="paperlink">
+                                <a href="https://www.sciencedirect.com/science/article/pii/S0045790617326836" target="_blank">Paper link</a>
+                            </div>
+                            <input type="checkbox" id="pub7" />
+                            <div class="abstract">
+                                In this article, we have proposed an educational model using virtual reality on a mobile platform by personalizing the simulated environments as per user actions. We have also proposed an evolutionary learning algorithm based on which the user learning path is designed and the corresponding simulated learning environment is modified. The main objective of this study is to create a personalized learning path for each student as per their calibre and make the learning immersive and retainable using virtual reality. Our proposed model emulates the innate natural learning process in humans and uses that to customize the virtual simulations of the lessons by applying the evolutionary learning technique. A quasi-experimental study is conducted by taking different case studies to establish the effectiveness of our learning model. The results show that our learning model is immersive and gives long term retention while enhancing creativity through reinforced customization of the simulations.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="publication">
+                        <h3> A Leukocyte Detection technique in Blood Smear Images using Plant Growth Simulation Algorithm</h3>
+                        <div class="pcontent">
+                            <div class="authors">Deblina Bhattacharjee and Anand Paul</div>
+                            <div class="venue">AAAI 2017: 31st AAAI Conference on Artificial Intelligence, San Francisco, USA, 4&ndash;9 February 2017</div>
+                            <div class="col justify-content-center text-center">
+                    <img src="aaai.png" style="width:80%; margin-right:-10px; margin-top:-10px;">
+            </div>
+                            <label for="pub8">Abstract</label>
+                            <div class="paperlink">
+                                <a href="https://www.aaai.org/ocs/index.php/AAAI/AAAI17/paper/download/14192/13737" target="_blank">Paper link</a>
+                            </div>
+                            <input type="checkbox" id="pub8" />
+                            <div class="abstract">For quite some time, the analysis of leukocyte images has drawn significant attention from the fields of medicine and computer vision alike where various techniques have been used to automate the manual analysis and classification of such images. Analysing such samples manually for detecting leukocytes is time-consuming and prone to error as the cells have different morphological features. Therefore, in order to automate and optimize the process, the nature-inspired Plant Growth Simulation Algorithm (PGSA) has been applied in this paper. An automated detection technique of white blood cells embedded in obscured, stained and smeared images of blood samples has been presented in this paper which is based on a random bionic algorithm and makes use of a fitness function that measures the similarity of the generated candidate solution to an actual leukocyte. As the proposed algorithm proceeds the set of candidate solutions evolves, guaranteeing their fit with the actual leukocytes outlined in the edge map of the image. The experimental results of the stained images and the empirical results reported validate the higher precision and sensitivity of the proposed method than the existing methods. Further, the proposed method reduces the feasible sets of candidate points in each iteration, thereby decreasing the required run time of load flow, objective function evaluation, thus reaching the goal state in minimum time and within the desired constraints.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="publication">
+                        <h3>A Hybrid Search Optimization Technique Based on Evolutionary Learning in Plants</h3>
+                        <div class="pcontent">
+                            <div class="authors">Deblina Bhattacharjee and Anand Paul</div>
+                            <div class="venue">Springer LNCS, Proceedings of the Seventh International Conference on Swarm Intelligence (ICSI), Bali, Indonesia, 25&ndash;30 June 2016</div>
+                            <div class="col justify-content-center text-center">
+                    <img src="lncs.webp" style="width:70%; margin-right:-10px; margin-top:-10px;">
+            </div>
+                            <label for="pub9">Abstract</label>
+                            <div class="paperlink">
+                                <a href="https://link.springer.com/chapter/10.1007/978-3-319-41000-5_27" target="_blank">Paper link</a>
+                            </div>
+                            <input type="checkbox" id="pub9" />
+                            <div class="abstract">In this article, we have proposed a search optimization algorithm based on the natural intelligence of biological plants, which has been modelled using a three tier architecture comprising Plant Growth Simulation Algorithm (PGSA), Evolutionary Learning and Reinforcement Learning in each tier respectively. The method combines the heuristic based PGSA along with Evolutionary Learning with an underlying Reinforcement Learning technique where natural selection is used as a feedback. This enables us to achieve a highly optimized algorithm for search that simulates the evolutionary techniques in nature. The proposed method reduces the feasible sets of growth points in each iteration, thereby reducing the required run times of load flow, objective function evaluation, thus reaching the goal state in minimum time and within the desired constraints.</div>
+                        </div>
+                    </div>
+                    <div class="publication">
+                        <h3> An object localization optimization technique in medical images using plant growth simulation algorithm</h3>
+                        <div class="pcontent">
+                            <div class="authors">Deblina Bhattacharjee, Anand Paul, J. H. Kim and M. Kim </div>
+                            <div class="venue">SpringerPlus, vol. 5, article 1784, pp. 1&ndash;20, 2016</div>
+                            <div class="col justify-content-center text-center">
+                    <img src="springerplus.png" style="width:90%; margin-right:-10px; margin-top:-10px;">
+            </div>
+                            <label for="pub10">Abstract</label>
+                            <div class="paperlink">
+                                <a href="https://link.springer.com/article/10.1186/s40064-016-3444-2" target="_blank">Paper link</a>
+                            </div>
+                            <input type="checkbox" id="pub10" />
+                            <div class="abstract">The analysis of leukocyte images has drawn interest from fields of both medicine and computer vision for quite some time where different techniques have been applied to automate the process of manual analysis and classification of such images. Manual analysis of blood samples to identify leukocytes is time-consuming and susceptible to error due to the different morphological features of the cells. In this article, the nature-inspired plant growth simulation algorithm has been applied to optimize the image processing technique of object localization of medical images of leukocytes. This paper presents a random bionic algorithm for the automated detection of white blood cells embedded in cluttered smear and stained images of blood samples that uses a fitness function that matches the resemblances of the generated candidate solution to an actual leukocyte. The set of candidate solutions evolves via successive iterations as the proposed algorithm proceeds, guaranteeing their fit with the actual leukocytes outlined in the edge map of the image. The higher precision and sensitivity of the proposed scheme from the existing methods is validated with the experimental results of blood cell images. The proposed method reduces the feasible sets of growth points in each iteration, thereby reducing the required run time of load flow, objective function evaluation, thus reaching the goal state in minimum time and within the desired constraints.</div>
+                        </div>
+                    </div>
+                    <div class="publication">
+                        <h3> Autonomous Terrestrial Image Segmentation and Sensor Node Localization for Disaster Management using Plant Growth Simulation Algorithm </h3>
+                        <div class="pcontent">
+                            <div class="authors">Deblina Bhattacharjee, Anand Paul, WH Hong, HC Seo, S Karthik</div>
+                            <div class="venue">Preprints.org, 2017</div>
+                            <div class="col justify-content-center text-center">
+                    <img src="mdpi.png" style="width:100%; margin-right:-10px; margin-top:-10px;">
+            </div>
+                            <label for="pub11">Abstract</label>
+                            <div class="paperlink">
+                                <a href="https://www.preprints.org/manuscript/201705.0032/v1/download" target="_blank">Paper link</a>
+                            </div>
+                            <input type="checkbox" id="pub11" />
+                            <div class="abstract">The use of unmanned aerial vehicle (UAV) during emergency response of a disaster has been widespread in recent years and the terrain images captured by the cameras on board these vehicles are significant sources of information for such disaster monitoring operations. Thus, analyzing such images are important for assessing the terrain of interest during such emergency response operations. Further, these UAVs are mainly used in disaster monitoring systems for the automated deployment of sensor nodes in real time. Therefore, deploying and localizing the wireless sensor nodes optimally, only in the regions of interest that are identified by segmenting the images captured by UAVs, hold paramount significance thereby effecting their performance. In this paper, the highly effective nature-inspired Plant Growth Simulation Algorithm (PGSA) has been applied for the segmentation of such terrestrial images and also for the localization of the deployed sensor nodes. The problem is formulated as a multi-dimensional optimization problem and PGSA has been used to solve it. Furthermore, the proposed method has been compared to other existing evolutionary methods and simulation results show that PGSA gives better performance with respect to both speed and accuracy unlike other techniques in literature.</div>
+                        </div>
+                    </div>      
+
+                     <div class="publication">
+                        <h3> Evolutionary Reinforcement Learning based Search Optimization</h3>
+                        <div class="pcontent">
+                            <div class="authors">Deblina Bhattacharjee</div>
+                            <div class="venue">SAC 2016: Proceedings of the 31st Annual ACM Symposium on Applied Computing (Student Research Competition), Pisa, Italy, 4&ndash;8 April 2016</div>
+                            <div class="col justify-content-center text-center">
+                    <img src="acm-src.png" style="width:70%; margin-right:-10px; margin-top:-10px;">
+            </div>
+                            <label for="pub12">Abstract</label>
+                            <div class="paperlink">
+                                <a href="https://dl.acm.org/citation.cfm?id=2852012" target="_blank">Paper link</a>
+                            </div>
+                            <input type="checkbox" id="pub12"/>
+                            <div class="abstract">Nature has always inspired researchers to find the best solutions to the toughest of problems. In this article, we proposed a search optimization algorithm based on a refined Plant Growth Simulation Algorithm (PGSA) that uses reinforcement learning. The method combines the heuristic based PGSA with reinforcement learning techniques where natural selection is used as a feedback, thus combining evolutionary algorithms with learning. This enables us to achieve a highly optimized algorithm for growth point search that simulates the evolutionary techniques seen in nature. The proposed method reduces the feasible sets of growth points in each iteration, thereby reducing the required run times of load flow, objective function evaluation and morphactin concentration calculation.</div>
+                        </div>
+                    </div>   
+
+                     <div class="publication">
+                        <h3> Adaptive Transcursive Algorithm for Depth Estimation in Deep Learning Networks</h3>
+                        <div class="pcontent">
+                            <div class="authors">Uthra Kunathur Thikshaja, Anand Paul, Seungmin Rho and Deblina Bhattacharjee</div>
+                            <div class="venue">2016 International Conference on Platform Technology and Service (PlatCon), Jeju, South Korea, 15&ndash;17 February 2016</div>
+                            <div class="col justify-content-center text-center">
+                    <img src="adaptive.gif" style="width:70%; margin-right:-10px; margin-top:-10px;">
+            </div>
+                            <label for="pub13">Abstract</label>
+                            <div class="paperlink">
+                                <a href="http://ieeexplore.ieee.org/document/7456783/" target="_blank">Paper link</a>
+                            </div>
+                            <input type="checkbox" id="pub13"/>
+                            <div class="abstract">Estimation of depth in a Neural Network (NN) or Artificial Neural Network (ANN) is an integral as well as complicated process. In this article, we propose a way of using the transformation of functions combined with recursive nature to have an adaptive, transcursive algorithm to represent the backpropagation concept used in deep learning for a Multilayer Perceptron Network. Each function can be used to represent a hidden layer used in the neural network and they can be made to handle a complex part of the processing. Whenever an undesirable output occurs, we transform (modify) the functions until a desirable output is obtained. We have an algorithm that uses the transcursive model to create an interpretation of the concept of deep learning using multilayer perceptron network (MPN).</div>
+                        </div>
+                    </div>                 
+                    <div class="publication">
+                        <h3>Theses</h3>
+                        <div class="pcontent">
+                            <div class="venue"><strong>Dense Image-based Predictions for Comics Analysis.</strong> PhD thesis, EPFL, 2023.</div>
+                            <div class="venue"><strong>An Evolutionary Learning Algorithm based on Plant Intelligence for Solving Optimization Problems.</strong> MSc thesis, Kyungpook National University, 2017 (Best MSc Thesis Award).</div>
+                        </div>
+                    </div>
+                    <!--
+                    <div class="publication">
+                        <h3></h3>
+                        <div class="authors"></div>
+                        <div class="venue"></div>
+                        <label for="pub">Abstract</label>
+                        <div class="paperlink"><a href="" target="_blank">Paper link</a></div>
+                        <input type="checkbox" id="pub" />
+                        <div class="abstract"></div>
+                    </div>
+                    -->
+                </div>
+                <div class="scrollbuttonbox">
+                    <div class="topbox"></div>
+                    <div class="bottombox"></div>
+                    <div class="nextbutton">
+                        <a class="scrolldownbutton" href="#talks">
+                            <div class="sdbcontent">
+                                <i class="material-icons">keyboard_arrow_down</i>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contentgroup">
+                <a class="anchor" id="talks"></a>
+                <h2>Talks</h2>
+                <ul>
+                    <li>BMVA technical session on AI for the Visual Arts, December 2026 (upcoming).</li>
+                    <li>Chair's opening and closing talks, 4th AI for Visual Arts (AI4VA) Workshop, ECCV 2026, Malm&ouml;, Sweden, 9 September 2026.</li>
+                    <li>Invited tutorial, Bath Machine Learning Summer School, University of Bath, August 2026.</li>
+                    <li>Live interview on BBC Radio for World Wide Web Day, 1 August 2026.</li>
+                    <li>Invited 90-minute tutorial (approximately 150 students), 29th BMVA Computer Vision Summer School (CVSS 2026), Durham University, 13&ndash;17 July 2026.</li>
+                    <li>Keynote on multimodal learning and spatial intelligence for creative and cultural domains, 2nd International Workshop on Spatial Intelligence for Cultural Heritage (SINT4CH), CVPR 2026, Denver, USA, 3 June 2026.</li>
+                    <li>Lead organiser's address, 3rd AI for Visual Arts (AI4VA) Workshop, CVPR 2026, Denver, USA, 3 June 2026.</li>
+                    <li>Invited delegate and speaker, United Nations Office at Geneva (UNRISD), on AI for arts, culture and governance, April 2026.</li>
+                    <li>Invited talk on AI for archival restoration, The National Archives, Kew, London, April 2026.</li>
+                    <li>Panellist, BCSWomen Lovelace Colloquium 2026.</li>
+                    <li>Invited panellist on research impact, "AI for Society", RBC Borealis, Toronto, Canada, June 2025.</li>
+                    <li>Invited panellist, "AI for Everyone", CVPR 2025, Nashville, USA, June 2025.</li>
+                    <li>Organiser's address, 2nd AI for Visual Arts (AI4VA) Workshop, ICCV 2025, Honolulu, USA, 19 October 2025.</li>
+                    <li>General Chair's address, 1st AI for Visual Arts (AI4VA) Workshop and Challenges, ECCV 2024, Milan, Italy, 29 September 2024.</li>
+                    <li>Presentations of Vision Transformer Adapters at ICCV 2023, Paris, and of Dense Multitask Learning to Reconfigure Comics at CVPR 2023 Workshops, Vancouver, 2023.</li>
+                    <li>Poster presentation at CVPR 2022 on Multitask Learning in Computer Vision, New Orleans, USA, 2022.</li>
+                    <div class="imagebox">
+                            <img src="IMG_5186.jpg" />
+                        </div>
+		    <li>Invited talk on the evolution of Computer Vision in recent years: from Convolutional Neural Networks to Transformers and Self-supervised Learning, Synapse, Milan, 2022.</li>
+                    <li>Oral and poster presentation at WACV 2022 on Estimating Image Depth in the Comics Domain, Hawaii, USA, 2022.</li>
+                    <li>Poster presentation at CVPR 2020 on Detection-based Unsupervised Image-to-Image Translation, Seattle, USA, 2020.</li>
+                    <li>Invited speaker on Future Trends in Deep Learning, International Conference on Data Science and Big Data Analytics, Toronto, Canada, 24&ndash;25 May 2018.</li>
+                    <li>Poster presentation at the Women in Machine Learning (WiML) Workshop, NeurIPS 2017, Long Beach, California, USA, 2017.</li>
+                    <li>Advances in Deep Learning, CiTE, Samsung&ndash;POSTECH Intelligent Media Research Centre, South Korea, 2017.</li>
+                    <li>Oral presentation at AAAI 2017 on Plant Intelligence and how it can be used to optimise Machine Learning, San Francisco, USA, 2017.</li>
+                    <li>Oral presentation at ICSI, Bali, Indonesia, 2016.</li>
+                    <li>Oral and poster presentation at ACM SAC, Pisa, Italy, 2016.</li>
+                    <li>Talk at PlatCon, Jeju, South Korea, 2016.</li>
+                    <li>Departmental talk on Vision, Deep Learning and Optimisation, Kyungpook National University, 2016.</li>
+                    <li>Oral presentation at the Department of Computer Science and Engineering, Kyungpook National University, 2015.</li>
+                    <li>Oral presentations at project grant proposal meetings, Daegu, South Korea, 2015&ndash;2017.</li>
+                </ul>
+                <div class="scrollbuttonbox">
+                    <div class="topbox"></div>
+                    <div class="bottombox"></div>
+                    <div class="nextbutton">
+                        <a class="scrolldownbutton" href="#academicservice">
+                            <div class="sdbcontent">
+                                <i class="material-icons">keyboard_arrow_down</i>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contentgroup">
+                <a class="anchor" id="academicservice"></a>
+                <h2>Academic Service</h2>
+                <h3><b>Conference organisation and leadership:</b></h3>
+                <ul>
+                    <li>Broadening Participation Chair and Publicity Chair, CVPR 2027; Publicity Chair, CVPR 2025 and CVPR 2026 (Organising Committee).</li>
+                    <li>Area Chair, IEEE/CVF Winter Conference on Applications of Computer Vision (WACV) 2026.</li>
+                    <li>Lead Organiser and Chair, AI for Visual Arts (AI4VA) Workshop series: ECCV 2024 (Milan), ICCV 2025 (Honolulu), CVPR 2026 (Denver) and ECCV 2026 (Malm&ouml;).</li>
+                    <li>Co-organiser, COMIQ Workshop at ICCV 2025 (with the University of Oxford, Universitat Aut&ograve;noma de Barcelona and the University of Florence).</li>
+                    <li>Co-organiser, Women in Computer Vision (WiCV) Workshop at CVPR 2024 (Seattle) and CVPR 2025 (Nashville).</li>
+                    <li>Mentor, Women in Computer Vision, ECCV 2024 (Milan).</li>
+                    <li>Chair, Athena SWAN Departmental Self-Assessment Team (DSAT) and co-lead of the Department's Athena Swan Silver application; member of the Equality, Diversity &amp; Inclusion Committee, Department of Computer Science, University of Bath.</li>
+                    <li>Lead organiser (Faculty of Science) of the University of Bath Doctoral Festival of Ideas workshops, 24 June 2026.</li>
+                    <li>Invited grant reviewer, US Department of Energy ASCR Early Career Research Program.</li>
+                </ul>
+                <br>
+                <h3><b>Industry and public-sector advisory roles:</b></h3>
+                <ul>
+                    <li>Chief AI Advisor, Silence Speaks Ltd (AI-driven British Sign Language avatars).</li>
+                    <li>AI advisor and consultant to Deaf Village UK, the United Nations, Dev TV and the education company Schlo&eacute; AI.</li>
+                </ul>
+                <br>
+                <h3><b>Reviewer for journals and conferences:</b></h3>
+                <ul>
+                    <li>More than 200 reviews over the past decade, including for IEEE Transactions on Pattern Analysis and Machine Intelligence (TPAMI), NeurIPS and ICML.</li>
+                    <li>IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR).</li>
+                    <li>European Conference on Computer Vision (ECCV).</li>
+                    <li>IEEE/CVF International Conference on Computer Vision (ICCV).</li>
+                    <li>IEEE/CVF Winter Conference on Applications of Computer Vision (WACV).</li>
+                    <li>Women in Machine Learning (WiML) Workshop.</li>
+                    <li>IEEE Transactions on Signal and Information Processing.</li>
+                    <li>IEEE Transactions on Emerging Topics in Computing.</li>
+                    <li>IEEE Transactions on Intelligent Transportation Systems (invited).</li>
+                    <li>Elsevier Computers &amp; Electrical Engineering.</li>
+                    <li>Taylor &amp; Francis Behaviour &amp; Information Technology.</li>
+                    <li>SpringerPlus.</li>
+                    <li>Springer Cluster Computing: The Journal of Networks, Software Tools and Applications.</li>
+                    <li>ACM Symposium on Applied Computing (SAC) 2016 and 2017.</li>
+                </ul>
+                <br>
+                <h3><b>Teaching and research supervision:</b></h3>
+                <ul>
+                    <li>Unit lecturer and coursework designer for CM22010 Visual Computing (2024/25, approximately 225 students) and CM22009 Machine Learning (from 2025/26, approximately 219 students), University of Bath; personal tutor to 17 students.</li>
+                    <li>Currently supervising four PhD students at Bath (one as lead supervisor, two as co-supervisor, and one joining in September 2026 on the industry co-funded URSA studentship) and co-supervising a doctoral researcher at the University of Geneva; co-supervised a PhD student at EPFL to completion in 2024.</li>
+                    <li>Supervised 26 undergraduate and taught-postgraduate project dissertations at Bath since 2024; in total 5 PhD, 26 Master's and 18 Bachelor's students across the UK, US, Switzerland and China.</li>
+                    <li>Supervised 2 successful Master's theses at EPFL on image translation and dense multitask learning; both students went on to work at Google.</li>
+                    <li>Supervised research projects leading to student-led publications, including two CVPR 2026 Workshop papers (including a Best Poster award) and a Findings of EMNLP 2026 paper.</li>
+                    <li>Head teaching assistant for Computational Photography (CS-413) at EPFL.</li>
+                </ul>
+                <br>
+                <h3><b>Member of organisations:</b></h3>
+                <ul>
+                    <li>Fellow of the Higher Education Academy (FHEA).</li>
+                    <li>Member of ELLIS (European Laboratory for Learning and Intelligent Systems).</li>
+                    <li>Member of the Computer Vision Foundation (CVF).</li>
+                    <li>Member of the Association for the Advancement of Artificial Intelligence (AAAI).</li>
+                    <li>Member of the International Machine Learning Society (IMLS).</li>
+                    <li>Member of the Computer Society of India.</li>
+                    <li>Member of the Association for Computing Machinery (ACM).</li>
+                </ul>
+
+                <div class="scrollbuttonbox">
+                    <div class="topbox"></div>
+                    <div class="bottombox"></div>
+                    <div class="nextbutton">
+                        <a class="scrolldownbutton" href="#awards">
+                            <div class="sdbcontent">
+                                <i class="material-icons">keyboard_arrow_down</i>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!--<div class="contentgroup">
+                <a class="anchor" id="certificates"></a>
+                <h2>Certificates</h2>
+                <ul>
+                    <li>TensorFlow BootCamp 2017 (Online)</li>
+                    <li>Computer Vision A-Z: superdatascience.com 2017 (Online)</li>
+                    <li>Deep Learning A-Z: superdatascience.com  2017 (Online)</li>
+                    <li>Artificial Intelligence A-Z: superdatascience.com  2017 (Online)</li>
+                    <li>Machine Learning A-Z: superdatascience.com 2016 (Online)</li>
+                    <li>Microsoft Student Program: Hackathon via Microsoft 2015 (Christ University Campus)</li>
+                    <li> R Programming and Data Analysis, Johns Hopkins University, USA via coursera.org 2014 (Online)</li>
+                    <li> SAP HANA Cloud Platform (Advanced) via openSAP 2014 (Online)</li>
+                    <li> MAS.S69x: Big Data and Social Physics, MIT, USA via  edX.org 2014 (Online)</li>
+                    <li> CS 6.001: Certificate in Introduction to computer Science and Programming using Python, MIT, USA via edX.org 2014 (Online)</li>
+                    <li> SAP 1.0 Certification, from Christ University and Waldorf, Germany 2013. (Christ University Campus)</li>
+                    <li> Stat 2.3X: Introduction to Statistics: Inference. University of California, Berkeley via edX.org 2013(Online)</li>
+                    <li> CS169: Software as a Service. University of California, Berkeley, USA via edX.org 2013 (Online)</li>
+                    <li> Stat 2.2 X: Introduction to Statistics: Probability. University of California, Berkeley via edX.org2013 (Online)</li>
+                              
+                                     
+                </ul> 
+                <div class="scrollbuttonbox">
+                    <div class="topbox"></div>
+                    <div class="bottombox"></div>
+                    <div class="nextbutton">
+                        <a class="scrolldownbutton" href="#outreach">
+                            <div class="sdbcontent">
+                                <i class="material-icons">keyboard_arrow_down</i>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div> -->
+            <div class="contentgroup">
+                <a class="anchor" id="awards"></a>
+                <h2>Awards &amp; Grants</h2>
+                <ul>
+                    <li>Faculty of Science Recognising Excellence Award, University of Bath, 2026.</li>
+                    <li>Best Poster Award (among 113), AI for Visual Arts Workshop at CVPR 2026, for a paper first-authored by my supervised undergraduate student.</li>
+                    <li>Innovate UK Accelerated Knowledge Transfer (AKT) grant, &pound;35,000, with Silence Speaks Ltd (academic lead): real-time, photorealistic 3D animatable British Sign Language avatars and a 5,000-sign annotated 3D BSL dataset, 2026.</li>
+                    <li>URSA 50:50 PhD studentship, with &pound;48,000 of industry co-funding from Silence Speaks Ltd, starting September 2026.</li>
+                    <li>Fellow of the Higher Education Academy (FHEA), July 2025.</li>
+                    <li>Impact and Knowledge Exchange Fellowship, July 2025.</li>
+                    <li>Elevate Leadership Fellowship, Ubele Foundation (UK-wide), June 2025.</li>
+                    <li>Perplexity AI Business Fellowship (international), February 2025.</li>
+                    <li>Teaching Excellence Award, December 2022.</li>
+                    <li>Swiss National Science Foundation Sinergia Grant, Switzerland, 2019&ndash;2023.</li>
+                    <li>Women in Machine Learning (WiML) Grant, 2017.</li>
+                    <li>Best MSc Thesis Award (Evolutionary Computation and Optimisation), Kyungpook National University, 2017.</li>
+                    <li>ACM SAC Student Research Competition best student paper nomination (top 5 globally), 2016.</li>
+                     <div class="imagebox">
+                            <img src="presentation italy.jpeg" />
+                        </div>
+                    <li>ACM SIGAPP Travel Award, Italy, 2016.</li>
+                    <li>KNU International Student Ambassador, 2017&ndash;present.</li>
+                    <li>Brain Korea 21 Plus research grant, Kyungpook National University, awarded to the top 1% of applicants in the Department of Computer Science and Engineering, 2015&ndash;2017.</li>
+                    <li>Full merit scholarship, Kyungpook National University, 2015&ndash;2017 (4 semesters).</li>
+                    <li>Christ University Merit Scholarship, all 8 semesters, 2011&ndash;2015; Dean's List.</li>
+                    <li>MS Artificial Intelligence, offer of study, New York University, 2015.</li>
+                    <li>MBA Business Analytics, offer of study, University of Tampa, Florida, USA, 2015.</li>
+                    <li>BS Computer Science Engineering (transfer), offer of study, University of Rochester, USA, 2013.</li>
+                    <li>Best Overall Performer of the Year 2012 among all undergraduate and postgraduate students, Christ University.</li>
+                    <li>Runner-up, International Science Debate Competition by Quanta, November 2009.</li>
+                    <li>Gold medal and 1st rank, National Cyber Olympiad, India, 2005.</li>
+                    <li>Distinction, Macmillan International Assessment, University of New South Wales, Australia, 2004&ndash;2006.</li>
+                </ul>
+
+                <div class="scrollbuttonbox">
+                    <div class="topbox"></div>
+                    <div class="bottombox"></div>
+                    <div class="nextbutton">
+                        <a class="scrolldownbutton" href="#outreach">
+                            <div class="sdbcontent">
+                                <i class="material-icons">keyboard_arrow_down</i>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="contentgroup">
+                <a class="anchor" id="outreach"></a>
+                <h2>Outreach</h2>
+                <ul>
+                    <li>
+                        <h3> </h3>
+                        <p>Sponsored and mentored a team of middle-school children for the FIRST LEGO League in India. <a href="https://www.indiastemfoundation.org/fllindia/#getinvolved">Click to know more.</a></p>                        
+                        
+                    </li>
+                    <li><h3> </h3>
+                        <p>Volunteered as a mentor at the Robo Siksha Kendra (the non-profit robotics school of the India STEM Foundation) event encouraging children, especially girls, in STEM and AI. <a href="https://indiastemfoundation.org/robo_siksha_kendra/">Click to know more</a></p>  
+                        <div class="imagebox">
+                            <img src="RoboSK.jpg" />
+                        </div>                      
+                    </li>
+					<li><h3> </h3>
+						<p>Organised a preparation workshop on Computer Science for the International Robotics Competition at the India STEM Foundation, attended by 350 children aged 6&ndash;12. Mentored an all-girls team for the International Robotics Competition.</p>
+						 
+                         <div class="imagebox">
+                            <img src="Outreach-IndiaSF-Robo.jpg" />
+                        </div>
+					</li>
+					
+					
+                    
+                   
+                </ul>
+
+               <!-- <div class="authors"> <p> " I am also heading an outreach for creating a STEM education platform. Now I collaborate with The India STEM Foundation to make Computer Science and AI education available to kids specially girls. I love learning and spreading knowledge. Creating an educated society is my ultimate goal and I strive every day for it. Seeing the dearth of girls in this field, I wanted to specially focus on attracting girls towards this field.  I understand the difference that a computer science education has brought to my life and being inspired from Women in Computing I want to empower all girls to achieve the best version of them. I have failed a lot in this pursuit having little knowledge about the demographics and cultural stigmas associated with varied places. However, I teach myself everyday and will continue on this path until my vision comes true." </p></div>-->
+
+                <div class="scrollbuttonbox">
+                    <div class="topbox"></div>
+                    <div class="bottombox"></div>
+                    <div class="nextbutton">
+                        <a class="scrolldownbutton" href="#workinprogress">
+                            <div class="sdbcontent">
+                                <i class="material-icons">keyboard_arrow_down</i>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>            
+            
+            <div class="contentgroup">
+                <a class="anchor" id="workinprogress"></a>
+                <h2>Current Research</h2>
+                <p style="text-align:justify;">Ongoing projects in my group at Bath (several currently under peer review):</p>
+                <ul>
+                    <li><strong>Accessible AI for the Deaf community:</strong> real-time, photorealistic 3D animatable British Sign Language avatars and a 5,000-sign annotated 3D BSL dataset, in partnership with Silence Speaks Ltd (Innovate UK AKT and URSA 50:50 PhD studentship).</li>
+                    <li><strong>Generative 3D for the visual arts:</strong> editing-first, part-wise 3D morphable face models that give artists localised, region-specific control while remaining compatible with existing reconstruction pipelines.</li>
+                    <li><strong>Trustworthy multimodal AI:</strong> causal auditing of LLM-generated instructions in region-based image editing, and benchmarks for cultural and author-stigmatising hazards in LLM-generated literary translation (with Yin Zhang, University of Geneva).</li>
+                    <li><strong>AI for healthcare:</strong> physics-informed latent interaction graphs for cardiac flow (with Katharine Fraser's group at Bath), and cross-modality robustness of retinal disease grading between colour and near-infrared fundus imaging.</li>
+                    <li><strong>Cultural heritage and archives:</strong> spatial intelligence and world models for reconstructing damaged cultural artefacts, and generative restoration of archival film.</li>
+                    <li><strong>Comics:</strong> 3D reconstruction of objects in the comics domain, begun under the Swiss National Science Foundation Sinergia project. <a href="https://drive.google.com/file/d/17s4158Um19CJaH8rb3JfsiZ2MlkrWNMn/view?usp=sharing" target="_blank">Video link</a></li>
+                </ul>
+
+                <div class="scrollbuttonbox">
+                    <div class="topbox"></div>
+                    <div class="bottombox"></div>
+                    <div class="nextbutton">
+                        <a class="scrolldownbutton" href="#projects">
+                            <div class="sdbcontent">
+                                <i class="material-icons">keyboard_arrow_down</i>
+                            </div>
+                        </a>
+                    </div>
+                </div>               
+            </div>          
+
+            <!--
+            <div class="contentgroup">
+                <a class="anchor" id="projects"></a>
+                <h2>Projects</h2>   
+                
+                <style>
+
+                </style>             
+
+                <div class="publication">
+                    <h3>Title</h3>
+                    <div class="topcontent">                           
+                        <div class="description">
+                            <p>Brief description of the project</p>                                                                          
+                        </div>
+                        <div class="image"><img src="images/ProductTank.jpg" /></div>                        
+                    </div>
+                    <div class="buttons">
+                        <label for="project1">More info</label>
+                        <div class="paperlink">
+                            <a href="http://dl.acm.org/citation.cfm?id=2911179" target="_blank">Paper link</a>
+                        </div>  
+                    </div>
+                    <input type="checkbox" id="project1" />
+                    <div class="abstract">
+                        <p>Add additional content here using normal HTML</p>                        
+                    </div>                    
+                </div>
+
+                ->
+                blank project block -->
+                <!--
+                    
+                <div class="publication">
+                    <h3>Title</h3>
+                    <div class="topcontent">                           
+                        <div class="description">
+                            <p>Brief description of the project</p>                        
+                            <label for="project1">More info</label>
+                            <div class="paperlink">
+                                <a href="#" target="_blank">Paper link</a>
+                            </div>                        
+                        </div>
+                        <div class="image"><img src="images/ProductTank.jpg" /></div>                        
+                    </div>
+                    <input type="checkbox" id="project1" />
+                    <div class="abstract">
+                        <p>Add additional content here using normal HTML</p>                        
+                    </div>                    
+                </div>
+                    
+            </div>  
+        </div> --> 
+<!-- Footer -->
+					<section id="footer">
+						<div class="container">
+							<ul class="copyright">
+								<li>&copy; Deblina Bhattacharjee. All rights reserved.</li>
+							</ul>
+						</div>
+					</section>
+
+			</div>
+
+        <script>
+            $(function () {
+                $('a[href*="#"]:not([href="#"])').click(function () {
+                    if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
+                        var target = $(this.hash);
+                        target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+                        if (target.length) {
+                            $('html, body').animate({
+                                scrollTop: target.offset().top
+                            }, 1000);
+                            return false;
+                        }
+                    }
+                });
+            });
+        </script>
+    </div>
+
+
+
+    <script>
+        $(document).ready(function () {
+            //$('#navbar').load('./header.html');
+
+            $(".publication input").each(function () { $(this).next(".abstract").hide(); });
+
+            $(".publication input").change(function () {
+                if ($(this).is(':checked')) {
+                    $(this).next(".abstract").slideDown();
+                }
+                else {
+                    $(this).next(".abstract").slideUp();
+                }
+            });
+        });
+    </script>
+    <noscript>
+        <style>
+            .abstract
+            {
+                 display:none; 
+            }
+        </style>
+    </noscript>
+
+
+
+
+
+    <script>
+        $(document).ready(function () {
+            var mainCanvas = document.querySelector("#introcanvas");
+            var mainContext = mainCanvas.getContext("2d");
+
+            mainCanvas.width = $('#introcanvas').width();
+            mainCanvas.height = $('#introcanvas').height();
+            var canvasWidth = mainCanvas.width;
+            var canvasHeight = mainCanvas.height;
+
+            var angle = 0;
+
+            var requestAnimationFrame = window.requestAnimationFrame ||
+                            window.mozRequestAnimationFrame ||
+                            window.webkitRequestAnimationFrame ||
+                            window.msRequestAnimationFrame;
+
+
+            $(window).resize(function () {
+                mainCanvas.width = $('#introcanvas').width();
+                mainCanvas.height = $('#introcanvas').height();
+                canvasWidth = mainCanvas.width;
+                canvasHeight = mainCanvas.height;
+            });
+
+            //  Create points
+            var nPoints = 50;
+            var pointArrayX = new Float32Array(nPoints);
+            var pointArrayY = new Float32Array(nPoints);
+            var pointColourIndex = [];
+            var radX = [];
+            var radY = [];
+            var minRadius = 100;
+            var maxRadius = 500;
+            
+            var colours = ["#ee8300", "#44f89e", "#44f0ed"];            
+
+            for (var i = 0; i < nPoints; i++) {
+
+                //  Points within a cirlce
+                var r = minRadius + Math.floor(Math.random() * maxRadius);
+                var angle = (2 * Math.PI) * Math.random();
+                pointArrayX[i] = (Math.cos(angle) * r);
+                pointArrayY[i] = (Math.sin(angle) * r);
+
+                radX.push(2 * (Math.random()-0.5));
+                radY.push(2 * (Math.random() - 0.5));
+
+                pointColourIndex.push(Math.floor(Math.random() * colours.length));
+            }
+            
+            //  Build connections
+            var nConnections = 200;
+            var connections = [];
+            for (var i = 0 ; i < nConnections; i++) {
+                var idx1 = Math.floor((Math.random() * nPoints));
+                var idx2 = Math.floor((Math.random() * nPoints));
+
+                //  Try to get a unique connection 10 times, abort if failed
+                var abortCount = 0;
+                while (idx1 == idx2 && abortCount < 10) {
+                    idx2 = Math.floor((Math.random() * nPoints));
+                    abortCount++; 
+                }
+
+
+                connections.push({ connection1: idx1, connection2: idx2 });
+            }
+
+            function getPointLocationX(index, movementAngle) {
+                //  Index into arrays
+                //  Movement percentage between 0 2PI
+                var x = pointArrayX[index] + (100 * Math.cos(3 * movementAngle * (index/50)));                
+                return x;
+                
+            }
+
+            function getPointLocationY(index, movementAngle) {
+                //  Index into arrays
+                //  Movement percentage between 0 2PI
+
+                var y = pointArrayY[index] + (150 * Math.sin(2 * movementAngle * (index/50)));
+                return y;
+            }
+
+            function drawGraph() {
+                mainContext.clearRect(0, 0, canvasWidth, canvasHeight);
+
+                // color in the background
+                mainContext.fillStyle = "#000000";
+                mainContext.fillRect(0, 0, canvasWidth, canvasHeight);
+                mainContext.save();
+                
+                //  Rotation
+                mainContext.translate(canvasWidth / 2, canvasHeight / 2);
+                mainContext.rotate(angle / 10);
+                mainContext.translate(-canvasWidth / 2, -canvasHeight / 2);                
+                mainContext.globalAlpha = 0.3;
+
+                var centerX = canvasWidth / 2;
+                var centerY = canvasHeight / 2;
+
+                //  Draw connections
+                mainContext.beginPath();
+                mainContext.strokeStyle = "#FFAB40";                
+                mainContext.translate(centerX, centerY);
+                connections.forEach(function (connection) {
+                    dx1 = getPointLocationX(connection.connection1, angle);
+                    dy1 = getPointLocationY(connection.connection1, angle);
+                    dx2 = getPointLocationX(connection.connection2, angle);
+                    dy2 = getPointLocationY(connection.connection2, angle);
+
+                    mainContext.lineTo(dx1, dy1);
+                    mainContext.moveTo(dx2, dy2);                    
+                });
+
+                mainContext.stroke();
+
+                //  Draw points
+                var w = 4;
+                for (var i = 0; i < nPoints; i++) {
+                    var x1 = getPointLocationX(i, angle);
+                    var y1 = getPointLocationY(i, angle);                    
+                    mainContext.fillStyle = colours[pointColourIndex[i]];
+                    mainContext.fillRect(x1 - (w / 2), y1 - (w / 2), w, w);
+                }
+
+                mainContext.restore();
+
+                angle += Math.PI / 1024;
+
+                requestAnimationFrame(drawGraph);
+            }
+
+            drawGraph();
+
+        });
+
+    </script>
+</body>
+
+</html>
